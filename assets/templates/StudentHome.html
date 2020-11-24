@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %} 
+<style>
+
+    #back1{
+        background-image: url('{% static "assets/images/organisation.jpg" %}') 
+    }
+</style>
+  
+  <div class="site-section mb-5">
+    <div class="container">
+      <div class="row mb-5">
+
+        <div class="col-md-12 mb-5"><h1>Welcome to  {{name}}</h1></div>
+
+        <div class="col-md-12 mb-5"><h1>Our Motive</h1></div>
+        <div class="col-md-6">
+            <p class="lead">Committed to helping you find a career where what you enjoy and what you are naturally gifted in collide.This is the intersection of greatness and where individuals are at their highest potential and have maximized their possibilities.
+.</p>
+            <p> here we will give you a clear understanding of the career options that he/she has before choosing their career.
+We will discuss the salient features(pros/cons) of every career option and will show you the right path. We will clearly explain the steps that you have to follow and the courses/coaching you have to take while pursuing your career. This, in turn, will add value to your resume and will make a way for your interest..</p>
+            
+          </div>
+          <div class="col-md-6">
+            <p>We will also explain the options that you have for an alternative career option and also the things that one has to learn while pursuing a career for a backup plan based on your career option.
+Here we will discuss the most probable queries that will arise in your mind in this phase.</p>
+            <p class="lead">Here you can interact with the current industrial experts(based on your career option) online/offline which will help you clarify your doubts regarding career.
+</p>
+          </div>
+      </div>
+      </div>
+      </div>
+      
+<!-- .site-section -->
+
+
+{% endblock content %}

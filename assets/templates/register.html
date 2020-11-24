@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+
+<style>
+
+    #back1{
+        background-image: url('{% static "assets/images/register.jpg" %}') 
+    }
+</style>
+{% if success %}
+
+ <script>
+    alert("student Registration is successfull");
+ </script>
+
+{% endif %}
+
+
+{% if error %}
+
+ <script>
+    alert("student Registration Failed enter unique email id");
+ </script>
+
+{% endif %}
+
+
+
+
+<div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" id="back1" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Student Register Form </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+            <h3 align="center">Student Registration  Form</h3>
+          <form action="" method="POST" enctype="multipart/form-data"  >
+
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control px-3 py-3" placeholder="Your Name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <input type="email" class="form-control px-3 py-3" placeholder="Your Email" name="email"  required>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control px-3 py-3" placeholder="Password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control px-3 py-3" placeholder="College Name" name="college"  required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control px-3 py-3" placeholder="Student Id" name="sid"  required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control px-3 py-3" placeholder="Qualification" name="qual"  required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control px-3 py-3" placeholder="Location" name="loc"  required>
+            </div>
+          
+          
+
+            <div class="form-group">
+                <select name="sex" class="form-control">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+               
+            </div>
+           
+            <div class="form-group">
+                <input type="file" class="form-control px-3 py-3" name="image"  required>
+            </div>
+
+
+          
+
+
+
+            <div class="form-group">
+              <input type="submit" value="Student Registraion" class="btn btn-primary py-3 px-5">
+            </div>
+            <br>    
+             <a href="register1">Register as  Employee</a>
+          </form>
+        
+        </div>
+
+        <div class="col-md-6">
+
+            <img src="{% static 'assets/images/register.jpg'%}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
