@@ -1,0 +1,697 @@
+<!doctype html>
+<!--[if lte IE 7]>    <html class="no-touch no-js ie7 lte-ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="no-touch no-js ie8 lte-ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-touch no-js" lang="en"><!--<![endif]-->
+  <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"b044f403c1",applicationID:"56772219"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<meta itemprop="acquia_lift:userAccess" content="" />
+<meta itemprop="acquia_lift:page_type" content="node page" />
+<meta itemprop="acquia_lift:author" content="webeditor" />
+<meta itemprop="acquia_lift:content_uuid" content="331e5b33-37ef-45b7-b507-e441a7ddee0b" />
+<meta itemprop="acquia_lift:post_id" content="6721" />
+<meta itemprop="acquia_lift:published_date" content="1500871080" />
+<meta itemprop="acquia_lift:content_title" content="The Virtues of Unintelligent Organisation Design " />
+<meta itemprop="acquia_lift:content_type" content="article" />
+<meta itemprop="acquia_lift:contentOrigin" content="45e97c87-0e9c-4701-455c-563f02b8398f" />
+<meta itemprop="acquia_lift:contentReplacementMode" content="trusted" />
+<meta itemprop="acquia_lift:authEndpoint" content="https://eu-central-1-oauth2.lift.acquia.com/authorize" />
+<meta itemprop="acquia_lift:liftDecisionAPIURL" content="https://eu-central-1-decisionapi.lift.acquia.com" />
+<meta itemprop="acquia_lift:liftAssetsURL" content="https://lift3assets.lift.acquia.com/stable" />
+<meta itemprop="acquia_lift:site_id" content="insead_prod" />
+<meta itemprop="acquia_lift:account_id" content="INSEADEDU" />
+<meta name="description" content="Any structure at all is better than none, as long as it leaves some room to explore." />
+<meta property="fb:app_id" content="229613717589267" />
+<meta property="og:site_name" content="INSEAD Knowledge" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Virtues of Unintelligent Organisation Design" />
+<meta property="og:url" content="https://knowledge.insead.edu/leadership-organisations/the-virtues-of-unintelligent-organisation-design-6721" />
+<meta property="og:description" content="Any structure at all is better than none, as long as it leaves some room to explore." />
+<meta property="og:updated_time" content="2017-07-27T07:23:36+02:00" />
+<meta property="og:image" content="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/484x252/public/images/2017/05/virtues_of_unintelligent_organisation_design.jpg?itok=wPmjTezw" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="INSEADKnowledge" />
+<meta name="twitter:site:id" content="25922185" />
+<meta name="twitter:url" content="https://knowledge.insead.edu/leadership-organisations/the-virtues-of-unintelligent-organisation-design-6721" />
+<meta name="twitter:description" content="Any structure at all is better than none, as long as it leaves some room to explore." />
+<meta name="twitter:title" content="The Virtues of Unintelligent Organisation Design" />
+<meta name="twitter:image" content="https://knowledge.insead.edu/sites/www.insead.edu/files/images/2017/05/virtues_of_unintelligent_organisation_design.jpg" />
+<meta property="article:published_time" content="2017-07-24T06:38:00+02:00" />
+<meta property="article:modified_time" content="2017-07-27T07:23:36+02:00" />
+<link rel="shortcut icon" href="https://knowledge.insead.edu/sites/www.insead.edu/files/images/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="icon" href="https://knowledge.insead.edu/sites/www.insead.edu/files/images/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" href="https://knowledge.insead.edu/sites/www.insead.edu/files/images/favicon-32x32.png" sizes="32x32" />
+<meta name="google-site-verification" content="zKNmsvUFI2DuLCaqv0xJsjC8unRKp6aJ_Eu2WbxhEVc" />
+<link rel="icon" href="https://knowledge.insead.edu/sites/www.insead.edu/files/images/android-chrome-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://knowledge.insead.edu/sites/www.insead.edu/files/images/apple-touch-icon.png" sizes="180x180" />
+<script type="text/javascript">
+var utag_data = {
+  "program_name" : "", //
+  "offer_type" : "", //
+  "program_type" : "", //
+  "u4" : "", // havas session id
+  "src" : "", // havas source tag
+  "u3" : "", // havas session name
+  "u6" : "", // havas tag marketing source
+  "cat" : "", // havas tag category
+  "form_submitted" : "", // Has the form been submitted
+  "u8" : "", // date
+  "ord" : "", //
+  "havas_cat" : "", //
+  "siteId" : "", //
+  "AdId" : "", //
+  "campaignId" : "", //
+  "adContent" : "", //
+  "campaign" : "", //
+  "keywords" : "", //
+  "medium" : "", //
+  "source" : "", //
+  "havas_type" : "", //
+  "type" : "", //
+  "Test" : "", // Test variable
+  "google_adwords_conversion_label" : "", //
+  "u1" : "", //
+  "u2" : "", //
+  "u5" : "", //
+  "u7" : "", //
+  "u9" : "", //
+  "u10" : "", //
+  "u11" : "" //
+}
+</script>
+
+<!-- Loading script asynchronously -->
+
+<script type="text/javascript">
+    (function(a,b,c,d){
+    a="//tags.tiqcdn.com/utag/insead/main/prod/utag.js";
+    b=document;
+    c="script";
+    d=b.createElement(c);
+    d.src=a;
+    d.type="text/java"+c;
+    d.async=true;
+    a=b.getElementsByTagName(c)[0];
+    a.parentNode.insertBefore(d,a); 
+})();
+</script>	<link href="/sites/all/modules/custom/knowledgeta/css/knowledge.css" rel="stylesheet" type="text/css">
+    <title>The Virtues of Unintelligent Organisation Design | INSEAD Knowledge</title>
+    <script type="text/javascript">
+      (function(ua,h,c,t) {
+        // no/js snippet
+        h[c] = h[c].replace('no-js', 'js');
+        // OS sniffing
+        var os = ['windows','macintosh','linux'];
+        for (var i=0, l=os.length; i<l; i++) {
+          if(new RegExp(os[i]).test(ua)){ h[c] += ' ' + os[i].substr(0,3); }
+        }
+        if (!!('ontouchstart' in window) || !!(window.DocumentTouch && document instanceof DocumentTouch)) {
+					h[c] = h[c].replace('no-' + t, t);
+				}
+      })(navigator.userAgent.toLowerCase(), document.documentElement, 'className', 'touch');
+
+
+    </script>
+
+    <!-- Media files -->
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://knowledge.insead.edu/sites/www.insead.edu/files/css/css_T9f75J537k0_f-E370huARhF09BF_v6EwqUvAbq6220.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://knowledge.insead.edu/sites/www.insead.edu/files/css/css__cIAXr2OhCrYZQqgitcyENSJ7EWpLk9wYMJ70K-6r28.css" media="print" />
+
+    
+	<!-- PO.ST - START -->
+      <script src="//knowledge.insead.edu/sites/all/themes/knowledge2015/js/post-widget.js#publisherKey=pn1s587e26gp4n7j0tv8&lc=en" type="text/javascript"></script>
+  <script type="text/javascript">
+    post_widget('.post-custom-button',{click: true, services: {p_share_popup: 'digg, reddit, stumbleupon, pinterest'}});
+  </script>
+	<!-- PO.ST - END -->
+
+    <!-- Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Divers -->
+    <meta name="apple-itunes-app" content="app-id=977206378">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="google-site-verification" content="R7haYOqhNAowzT8S7eXqJK2Grr2_A6QorIzZdm-7_Uo">
+  </head>
+  <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-6721 node-type-article no-banner page-category page-category--2" >
+  <div id="privacy-disclaimer" style="display:none;"><p><span class="defaultD">By continuing to use the INSEAD website you agree to the use of cookies in accordance with our <a href="https://www.insead.edu/sites/default/files/assets/dept/institutional/docs/cookie-policy.pdf" target="_blank">cookie policy</a> | <a href="https://knowledge.insead.edu/sites/www.insead.edu/files/images/managing-cookies.pdf" target="_blank">Manage cookies</a>.</span></p>
+</div>
+	<div style='display:none'>
+		<div id='inline_content' style='padding:10px; background:#fff;'>
+			Supported Browser		</div>
+		<div id='inline_content2' style='padding:10px; background:#fff;' class ="popup-show-mess" >
+			For the best user experience of INSEAD Knowledge, we recommend the latest version of these browsers: Firefox, Chrome, Internet Explorer, Edge or Safari.		</div>
+	</div>
+    <input type="checkbox" id="nav-toggle" class="input-styles">
+        <div class="site">
+  <div class="site-topbar">
+  <div class="trunk">
+    <div class="alpha">
+      <a href="/" class="logo">INSEAD Knowledge</a>
+                                <form action="/" method="post" id="search-block-form" accept-charset="UTF-8"><div><span class="input-search-type"><span class="input-search-type_inner"><select name="scope" ><option value="all" >All</option><option value="author"  >Authors</option></select></span></span><span class="input-search"><input type="search" name="search_block_form" id="search" placeholder="Search"></span><input type="submit" class="submit-search" name="op" value="Go"><input type="hidden" name="form_build_id" value="form-CvoXTWXjEudOT3yItzCRH4lZtBGQzrKsX3ITOcssabY" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div></form>              </div><!--
+      --><div class="beta">
+        <ul class="pipes">
+          <li><span data-braze="L3RlYW0=">About Us</span></li><!--
+                    --><li><span data-braze="L3VzZXIvcmVnaXN0ZXI=">Subscribe</span></li><!--
+            --><li><a href="/user/login" class="call-popin-login">Sign-In</a></li><!--
+                    --><li><span data-braze="L2NvbnRhY3Q=">Contact us</span></li>
+      </ul><!--
+      --><ul class="social">
+        <li><span data-braze="L3Jzcy9saXN0" class="ico_rss"></span></li>
+        <li><span data-braze="aHR0cDovL3d3dy5mYWNlYm9vay5jb20vS25vd2xlZGdlLmluc2VhZA==" data-braze-blank class="ico_facebook"></span></li>
+        <li><span data-braze="aHR0cDovL3R3aXR0ZXIuY29tL0lOU0VBREtub3dsZWRnZQ==" data-braze-blank class="ico_twitter"></span></li>
+        <!--li><span data-braze="" data-braze-blank class="ico_google-plus"></span></li-->
+        <li><span data-braze="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vY29tcGFueS9pbnNlYWQ=" data-braze-blank class="ico_linked-in"></span></li>
+        <li><span data-braze="aHR0cDovL3d3dy55b3V0dWJlLmNvbS9pbnNlYWQ=" data-braze-blank class="ico_youtube"></span></li>
+        <li><span data-braze="aHR0cHM6Ly93d3cuaW5zZWFkLmVkdS9pdHVuZXM=" data-braze-blank class="ico_itunes"></span></li>
+      </ul>
+    </div>
+  </div>
+</div><!-- site-topbar -->      <header class="site-header" role="banner">
+	<div class="trunk">
+				<div class="insead">
+			<a href="https://www.insead.edu" target="_blank"><img src="/sites/all/themes/knowledge2015/img/insead-logo.svg" data-x2="/sites/all/themes/knowledge2015/img/insead-logo.svg" alt="INSEAD Knowledge"></a>
+	</div><!--
+--><div class="knowledge">
+				<a href="/"><span>INSEAD Knowledge</span><img alt="INSEAD Knowledge" src="/sites/all/themes/knowledge2015/img/logo-knowledge-new-x2.png" data-x2="/sites/all/themes/knowledge2015/img/logo-knowledge-new-x2.png"></a>
+			</div><!--
+--><div class="spotlight">
+		<label id="for-nav-toggle" for="nav-toggle" class="nav-btn" data-icon="≡" onclick=""></label>
+	</div>
+</header><!-- site-header -->  <nav class="site-nav" role="navigation">
+	<div class="site-nav_inner">
+		<ul class="main-menu">
+									<li class="main-menu_item"><a href="/" class="main-menu_link">Home</a></li>
+									<li class="main-menu_item main-menu_item--submenu"><button class="main-menu_link">Topics</button>					<div class="sub-menu">
+						<div class="sub-menu_inner">
+							<div class="sub-menu_row">
+								<div class="sub-menu_col">
+									<ul class="topics-list"><li class="topics-list_item"><a href="/leadership" class="topics-list_link topics-list_link--category-2">Leadership &amp; Organisations</a></li><li class="topics-list_item"><a href="/leadership-management/strategy" class="topics-list_link topics-list_link--category-3">Strategy</a></li><li class="topics-list_item"><a href="/economics" class="topics-list_link topics-list_link--category-1">Economics &amp; Finance</a></li><li class="topics-list_item"><a href="/marketing" class="topics-list_link topics-list_link--category-8">Marketing</a></li><li class="topics-list_item"><a href="/responsibility" class="topics-list_link topics-list_link--category-23">Responsibility</a></li><li class="topics-list_item"><a href="/entrepreneurship" class="topics-list_link topics-list_link--category-13">Entrepreneurship</a></li><li class="topics-list_item"><a href="/leadership-management/operations-management" class="topics-list_link topics-list_link--category-6">Operations</a></li><li class="topics-list_item"><a href="/business-finance/family-business" class="topics-list_link topics-list_link--category-10">Family Business</a></li><li class="topics-list_item"><a href="/career" class="topics-list_link topics-list_link--category-5">Career</a></li></ul>
+								</div>
+								<div class="sub-menu_col">
+									<section class="lastest-articles">
+										<div class="head">Latest Articles</div>
+										<ul class="list"><li><article data-braze="area" class="feat side category category--6">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/59x74/public/styles/portrait/public/images/2020/04/crisis_management_blueprint.jpg?itok=nPKC5wiy" width="59" height="74" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/operations/a-crisis-management-blueprint-for-covid-19-13716" data-braze="target">A Crisis Management Blueprint for COVID-19</a></div>
+						<p>Crisis is conquered through a positive combination of talents...</p>			</div>
+</article><!-- feature : feat side category category--6  -->
+</li><li><article data-braze="area" class="feat side category category--2">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/59x74/public/styles/portrait/public/images/2020/04/what_newly_remote_teams_need.jpg?itok=hGXqbxvh" width="59" height="74" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/blog/insead-blog/what-newly-remote-teams-need-right-now-13706" data-braze="target">What Newly Remote Teams Need, Right Now</a></div>
+						<p>Our survey reveals that in the transition to remote working,...</p>			</div>
+</article><!-- feature : feat side category category--2  -->
+</li></ul>
+									</section>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+									<li class="main-menu_item"><a href="/articles" class="main-menu_link">Articles</a></li>
+									<li class="main-menu_item"><a href="/blogs" class="main-menu_link">Blogs</a></li>
+												<li class="main-menu_item"><a href="/videos" class="main-menu_link">Videos</a></li>
+									<li class="main-menu_item main-menu_item--sep"><a href="https://cases.insead.edu/publishing/" target="_blank" class="main-menu_link">Case studies</a></li>
+									<li class="main-menu_item"><a href="https://www.insead.edu/faculty-research/research" target="_blank" class="main-menu_link">Research</a></li>
+						<li class="main-menu_item main-menu_item--mobile">
+								<a href="/user/register" class="main-menu_link">Subscribe</a>
+							</li>
+			<li class="main-menu_item main-menu_item--mobile">
+								<a href="/user/login" class="call-popin-login main-menu_link">Sign-In</a>
+							</li>
+		</ul>
+	</div>
+</nav>  <div class="site-body">
+    <div class="trunk">
+      <div class="row">
+        <ul class="breadcrumb"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span itemprop="title">Home</span></a>/</li><!----><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/leadership" itemprop="url"><span itemprop="title">Leadership &amp; Organisations</span></a>/</li><!----><li class="current"><span>The Virtues of Unintelligent Organisation Design </span></li></ul>        <div class="col c2 c-first" role="main">
+          <ul class="tabs primary clearfix"><li class="active"><a href="/leadership-organisations/the-virtues-of-unintelligent-organisation-design-6721" class="active"><span class="tab">View</span><span class="element-invisible">(active tab)</span></a></li>
+<li><a href="/node/6721/pdf"><span class="tab">PDF</span></a></li>
+</ul>                        <div class="region region-content">
+    
+
+<article class="article article-solid">
+		<div class="context">
+		<span class="context_visuel context_visuel--2"></span>
+		<span class="context_title">Leadership & Organisations</span>
+	</div>
+	  <div class="article-top">
+    <h1 class="main-title">The Virtues of Unintelligent Organisation Design </h1>
+	
+    <div class="metas">
+	  <span class="author"><a href="/users/julienclement" title="View user profile." class="username">Julien  Clément</a>, INSEAD PhD student, and <a href="/users/phanishpuranam" title="View user profile." class="username">Phanish Puranam</a>, INSEAD Professor of Strategy and Organisation Design</span>&nbsp;|            <time datetime="2017-07-24T06:38:00+02:00">July 24, 2017</time></div>
+	  
+		<div class="article-toolbox">
+    	<div class="toolbar_placeholder">
+	<div class="toolbar_wrapper">
+		<div class="toolbar">
+			<div class="toolbar_item">
+				<div class="toolbar_element toolbar_element--share">
+					<div class="share-bar">
+						<div class="share-bar_item" data-share="facebook"></div>
+						<div class="share-bar_item" data-share="twitter"></div>
+						<div class="share-bar_item" data-share="google"></div>
+						<div class="share-bar_item" data-share="linkedin"></div>
+						<div class="share-bar_item">
+							<div class="pw-widget pw-counter-vertical" pw:url="https://knowledge.insead.edu/node/6721" pw:title="The Virtues of Unintelligent Organisation Design ">
+								<a class="post-custom-button"><img src="https://knowledge.insead.edu/sites/all/themes/knowledge2015/img/share-more-button.png" width="53" height="20" alt="More"  /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--
+			--><div class="toolbar_item">
+				<a href="mailto:?subject=The Virtues of Unintelligent Organisation Design &body=https://knowledge.insead.edu/leadership-organisations/the-virtues-of-unintelligent-organisation-design-6721" class="toolbar_element toolbar_element--email"><span class="ico_email"></span></a>
+			</div><!--
+			--><div class="toolbar_item">
+								<a href="/node/6721/pdf" class="toolbar_element" target="_blank" title="Download PDF"><span class="ico_pdf"></span></a>
+							</div><!--
+			--><div class="toolbar_item">
+				<div class="toolbar_element" data-font-size><span class="ico_font"></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+// Affiche les boutons des réseaux sociaux en fonction du mode (vertical ou horizontal)
+// qui est déterminé à partir de la largeur du navigateur
+(function() {
+	var forceMode = 'vertical',
+		mode = forceMode || (document.body.clientWidth > 1179) ? 'vertical' : 'horizontal',
+		element,
+		networks = {
+			'facebook': '<div class="fb-like" data-href="https://knowledge.insead.edu/leadership-organisations/the-virtues-of-unintelligent-organisation-design-6721" data-layout="' + (mode === 'vertical' ? 'box_count' : 'button') + '" data-action="like" data-show-faces="true" data-share="false"></div>',
+			'twitter': '<a href="https://twitter.com/share" class="twitter-share-button" data-via="INSEADKnowledge" data-count="' + (mode === 'vertical' ? 'vertical' : 'none') + '" data-url="https://knowledge.insead.edu/leadership-organisations/the-virtues-of-unintelligent-organisation-design-6721">Tweet</a>',
+			'google': '<div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>',
+			'linkedin': '<s'+'cript type="IN/Share" ' + (mode === 'vertical' ? 'data-counter="top"' : '') + '></s'+'cript>'
+		};
+	for (var i in networks) {
+		element = document.querySelector('[data-share="' + i + '"]');
+		if (element) {
+			element.innerHTML = networks[i];
+		}
+	}
+}());
+</script>    </div>
+   </div>
+
+                        <div class="article-body">
+    	        		<figure class="photo"><img data-x2="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/panoramic/public/images/2017/05/virtues_of_unintelligent_organisation_design.jpg" src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/w_650/public/styles/panoramic/public/images/2017/05/virtues_of_unintelligent_organisation_design.jpg?itok=7Tn_FETS" alt="" /></figure>
+                                                <p class="chapo">Any structure at all is better than none, as long as it leaves some room to explore.</p>
+                    
+        <!--smart_paging_autop_filter--><!--smart_paging_filter--><p>Every organisation’s formal structure contains a host of assumptions about how, and with whom, members should interact in order to achieve the best organisational outcomes. These assumptions are reflected in the org chart, incentive measures and even the headquarter’s physical layout. In most cases, these are all designed to facilitate collective behaviours deemed productive, while preventing the “wrong” or “less useful” ones.</p>
+<p>However, as anyone who has ever worked in an organisation knows, things don’t always go according to plan. And that may be advantageous: Unplanned, informal interactions are widely thought to compensate for blind spots and bureaucratic inertia embedded in formal structures. One might even wonder whether top-down organisation design makes sense at all in today’s unpredictable business climate. Recently, <strong><a href="https://knowledge.insead.edu/blog/insead-blog/what-boss-less-firms-can-teach-us-3307">“flat” organisations such as Valve</a></strong> have suggested that dispensing with hierarchy and allowing employees to set their own agendas could be a workable system.</p>
+<p>The “top-down or bottom-up” dilemma applies to the design of complex large-scale structures in much the same way as it applies to simple structural choices. Imagine a leader who devises what he or she believes is an ideal seating plan for his project team, only to find that employees are changing seats based on their own preferences and interpretations of what tasks require. The leader must choose between letting the team do as they like or attempting to enforce the seating plan. Which would produce better results: a possibly flawed order or organic chaos?</p>
+<p>Our research paper, “<strong><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2974436">Searching for Structure: Formal Organization Design as a Guide to Network Evolution</a></strong>” (forthcoming in <em>Management Science</em>), shows that formal design can be effective without being particularly intelligent. Even a randomly selected formal structure can usefully shape how networks of interaction evolve in an organisation.</p>
+<p><strong>Modeling organizations <em>in silico</em></strong></p>
+<p>For the study, we built an agent-based computational model in which the designer selects a formal structure, but the employees adhere only partially to it—they also explore on their own ways to interact with others. Consider first a system in which there is no formal structure. The search for a partner to interact with can produce two types of errors: Two employees may either not work together when they should (an “error of omission”) or work together despite having no benefit in doing so (an “error of commission”). An error of commission can be corrected by employees without any coordination—it only takes one person to realise that the collaboration is fruitless and end the partnership. Errors of omission are much trickier. To start valuable interactions, two employees must first find each other and agree to work together.</p>
+<p>Even as companies reach a moderate size, it gets hard for people to find each other and discover whether they might benefit from collaborating. We found that without formal structure, as social networks solidify over time, employees will initiate fewer and fewer new interactions, reducing considerably the risk of commission errors. As a consequence, however, they are likely to make a higher number of omission errors. Beneficial interactions will increasingly fail to take place.</p>
+<p>Formal structures—even when they are entirely random—force employees to keep up the rate of interaction as social networks mature. That is, by encouraging certain people to interact with each other, formal structures make them “test the hypothesis” that they might have something to gain in working together. This increases the likelihood that employees will continue to find valuable interaction patterns. To put it another way, formal structures tip the balance in favour of more easily rectified errors (i.e., they generate commission errors instead of omission errors). Most importantly, this benefit of formal structure accrues even when the designer has no better than a random chance at getting the structure right, as long as the structure is only mildly enforced. Even when managers have no clue which employees should interact with whom, it can still be valuable to encourage some employees to work together as long as they are free to stop doing so if they don’t find it valuable.</p>
+<p><strong>Implications for practitioners</strong></p>
+<p>Our conclusion that even a lightly enforced, completely random structure is better than none has relevance for companies in innovative fields such as tech, where optimal task architectures are often elusive. Managers should aim for balance between the formal “seating plan” (or any other formal structure) and employees’ natural tendency to search for more value-producing collaborations. Enforcing some formal structure in a flexible way is valuable, even when the formal structure is very unlikely to be optimal.</p>
+<p>But what about more stable industries, where managers can be confident that they know the right structure? Paradoxically, our study suggests that organisations in those settings can also benefit from a lightly enforced formal structure. But this is for a different reason: As long as employees have incentives to contribute to the organisation’s success, they are likely to eventually follow formal structures that help them do so even if those structures aren’t strongly enforced. When structures are tried-and-tested, there is little value in deploying a battery of org charts, seating plans and meeting schedules to make employees stick to them.</p>
+<p><strong>Formal structure lives on</strong></p>
+<p>For years, professionals have been told that the conventional organisation is about to be replaced by tele-work, structure-free organisations and the “virtual workplace”. Yet even the most cutting-edge companies continue to <strong><a href="https://www.digitaltrends.com/cool-tech/apple-park-spaceship-campus/">invest in physical spaces</a></strong>, org charts, and other devices that structure employee interactions. Our findings give some indication as to why this might still be sensible. The planned interactions facilitated by a formal structure can guide how social networks evolve, even when the structures themselves are not based on any superior insight about who should interact with whom.</p>
+<p><em><strong><a href="https://www.insead.edu/phd/student-profiles/julien-clement">Julien Clément</a></strong> is a PhD candidate in INSEAD’s Strategy department. He studies formal organisation design, informal social structure and the interplay between the two.</em></p>
+<p><em><strong><a href="http://www.insead.edu/facultyresearch/faculty/profiles/ppuranam/">Phanish Puranam</a></strong> is the Roland Berger Chair Professor of Strategy &amp; Organisation Design at INSEAD. He is also the Academic Director of INSEAD’s PhD Programme.</em></p>
+<p><em>Follow INSEAD Knowledge on <strong><a href="http://www.twitter.com/inseadknowledge">Twitter</a></strong> and <strong><a href="http://www.facebook.com/Knowledge.insead">Facebook</a></strong></em></p>
+            
+                            </div><!-- .article-body -->
+                            <div class="article-bot">
+    		</div><!-- .article-bot -->                              
+	</article><!-- .article -->
+	<div id="related" class="related">
+	<div class="related_head">Related articles</div>	
+	<ul class="list">
+			<li>
+			<article data-braze="area" class="feat side category category--2">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/80x100/public/styles/panoramic/public/images/2018/09/is_it_time_to_retire_the_org_chart_2.jpg?itok=HJSmya9c" width="80" height="100" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/is-it-time-to-retire-the-org-chart-10151" data-braze="target">Is It Time to Retire the Org Chart?</a></div>
+		<div class="metas"><time datetime="2018-09-27T05:05:00+02:00">September 27, 2018</time></div>							</div>
+</article><!-- feature : feat side category category--2  -->
+		</li>
+			<li>
+			<article data-braze="area" class="feat side category category--2">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/80x100/public/styles/panoramic/public/images/2017/06/organisation_design_science.jpg?itok=HUJPXvSY" width="80" height="100" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/blog/insead-blog/organisation-design-based-on-science-not-superstition-6531" data-braze="target">Organisation Design Based on Science, Not Superstition </a></div>
+		<div class="metas"><time datetime="2017-06-30T09:55:00+02:00">June 30, 2017</time></div>							</div>
+</article><!-- feature : feat side category category--2  -->
+		</li>
+			<li>
+			<article data-braze="area" class="feat side category category--2">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/80x100/public/styles/panoramic/public/images/2016/08/mislead_your_employees_2.jpg?itok=hwG4wq5A" width="80" height="100" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/when-its-okay-to-mislead-your-employees-4875" data-braze="target">When It’s Okay to Mislead Your Employees</a></div>
+		<div class="metas"><time datetime="2016-08-22T09:42:00+02:00">August 22, 2016</time></div>							</div>
+</article><!-- feature : feat side category category--2  -->
+		</li>
+		</ul>
+	<div class="related_button"></div>
+</div>
+   	<div class="zone solid add-comment">
+			<div class="head">Add a comment <span>Already a member? <a href="/user/login" class="call-popin-login login">Sign In</a></span></div>
+                <div>
+                    We welcome your comments and encourage lively debate. However, to ensure the quality of discussion, our moderators reserve the right not to publish personal attacks, abusive comments or overly promotional content. You can view our 
+                    <em><strong><a href="/terms-conditions" style="text-decoration:underline">Terms & Conditions</a></strong></em>
+                </div>
+		<form class="comment-form user-info-from-cookie ajax-comments-reply-form-6721-0-0 ajax-comments-form-add" id="ajax-comments-reply-form-6721-0-0" action="/comment/reply/6721" method="post" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Nickname <span class="form-required" title="This field is required.">*</span></label>
+ <input class="field-nickname form-text required" type="text" id="edit-name" name="name" value="" size="30" maxlength="60" />
+</div>
+<div class="form-item form-type-textfield form-item-mail">
+  <label for="edit-mail">E-mail <span class="form-required" title="This field is required.">*</span></label>
+ <input class="field-email form-text required" type="text" id="edit-mail" name="mail" value="" size="30" maxlength="64" />
+</div>
+<div class="form-item form-type-textfield form-item-subject">
+  <label for="edit-subject">Title </label>
+ <input class="field-title form-text" type="text" id="edit-subject" name="subject" value="" size="60" maxlength="64" />
+</div>
+<div class="field-type-text-long field-name-comment-body field-widget-text-textarea form-wrapper" id="edit-comment-body"><div id="comment-body-add-more-wrapper"><div class="text-format-wrapper"><div class="form-item form-type-textarea form-item-comment-body-und-0-value">
+  <label for="edit-comment-body-und-0-value">Comment <span class="form-required" title="This field is required.">*</span></label>
+ <div class="form-textarea-wrapper"><textarea class="text-full form-textarea required" id="edit-comment-body-und-0-value" name="comment_body[und][0][value]" cols="60" rows="5"></textarea></div>
+</div>
+</div>
+</div></div><input type="hidden" name="form_build_id" value="form-Oh3UNJJnlcqcA4hhihb8hbg_Uw4Wvrf_cuJ1J6aDGKk" />
+<input type="hidden" name="form_id" value="comment_node_article_form" />
+<div class="form-item form-type-checkbox form-item-notify">
+ <input type="checkbox" id="edit-notify" name="notify" value="1" checked="checked" class="form-checkbox" />  <label class="option" for="edit-notify">Notify me when new comments are posted </label>
+
+</div>
+<div id="edit-notify-type" class="form-radios"><div class="form-item form-type-radio form-item-notify-type">
+ <input type="radio" id="edit-notify-type-1" name="notify_type" value="1" class="form-radio" />  <label class="option" for="edit-notify-type-1">All comments </label>
+
+</div>
+<div class="form-item form-type-radio form-item-notify-type">
+ <input type="radio" id="edit-notify-type-2" name="notify_type" value="2" checked="checked" class="form-radio" />  <label class="option" for="edit-notify-type-2">Replies to my comment </label>
+
+</div>
+</div><div style="display: none;" id="divspy"><div class="form-item form-type-textfield form-item-myspy">
+  <label for="spyfield">E-mail </label>
+ <input type="text" id="spyfield" name="myspy" value="" size="60" maxlength="128" class="form-text" />
+</div>
+</div><fieldset class="captcha form-wrapper"><legend><span class="fieldset-legend">CAPTCHA</span></legend><div class="fieldset-wrapper"><div class="fieldset-description">This question is for testing whether or not you are a human visitor and to prevent automated spam submissions.</div><input type="hidden" name="captcha_sid" value="248788141" />
+<input type="hidden" name="captcha_token" value="98cc1e88e5553ec3dcd9b9a1d13166c9" />
+<img src="/image_captcha?sid=248788141&amp;ts=1586127730" width="180" height="60" alt="Image CAPTCHA" title="Image CAPTCHA" /><div class="form-item form-type-textfield form-item-captcha-response">
+  <label for="edit-captcha-response">What code is in the image? <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-response" name="captcha_response" value="" size="15" maxlength="128" class="form-text required" />
+<div class="description">Enter the characters shown in the image.</div>
+</div>
+</div></fieldset>
+<div class="form-actions form-wrapper" id="edit-actions"><input class="field-submit form-submit" type="submit" id="edit-ajax-comments-reply-form-6721-0-0" name="op" value="Submit" /></div></div></form>	</div>
+<br />
+<div style="text-align: left; color: #555555">
+	<p><strong><span style="font-family: verdana, geneva; font-size: x-small;">Your Privacy</span></strong></p>
+	<p><font face="verdana,geneva" size="1">INSEAD takes your privacy very seriously. For this reason, we inform you that the data collected via the form above is processed electronically for the purpose(s) specified in this form and will not be used outside this framework. In accordance with the Data Protection Act of 6 January 1978 amended by the GDPR, you are granted statutory rights of access, modification, update, deletion and limitation of treatment of your personal data. You may exercise these rights at any time by writing or sending an email to INSEAD at <a href="mailto:insead.knowledge@insead.edu">insead.knowledge@insead.edu</a>. You have the right, on legitimate grounds, to object to the collection and processing of your personal information. For more information, please see our&nbsp;<a href="/privacy-policy">privacy policy</a>.</font></p>
+</div>
+<p><font face="verdana,geneva" size="1">&nbsp;</font></p>
+<!-- node.tpl.php -->  </div>
+        </div><!-- col c2
+        --><div class="col c1 sidebar" role="complementary">
+            <div class="region region-sidebar">
+    <section class="zone solid c-latest-articles">
+	<div class="head">Latest Articles</div>
+		<ul class="list">
+				<li>
+			<article data-braze="area" class="feat side category category--2">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/80x100/public/styles/portrait/public/images/2020/03/challenges_of_remote_work_2.jpg?itok=iVi4pGOt" width="80" height="100" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/the-three-main-challenges-of-remote-working-13651" data-braze="target">The Three Main Challenges of Remote Working</a></div>
+						<p>Even for long-established teams, moving from physical to virtual is a game-changer.</p>			</div>
+</article><!-- feature : feat side category category--2  -->
+		</li>
+				<li>
+			<article data-braze="area" class="feat side category category--3">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/80x100/public/styles/portrait/public/images/2020/03/gettyimages-1136354448.jpg?itok=EkE86GWO" width="80" height="100" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/strategy/tmt-the-unit-for-success-13581" data-braze="target">TMT: The Unit for Success</a></div>
+						<p>How the right mix of experience and innovation generates a great start-up top management team.</p>			</div>
+</article><!-- feature : feat side category category--3  -->
+		</li>
+				<li>
+			<article data-braze="area" class="feat side category category--2">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/80x100/public/styles/portrait/public/images/2020/03/history_with_money.jpg?itok=tU17HZEa" width="80" height="100" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/your-history-with-money-affects-how-you-negotiate-13511" data-braze="target">Your History With Money Affects How You Negotiate</a></div>
+						<p>The mindset fostered by financial scarcity hinders the pursuit of win-win outcomes.</p>			</div>
+</article><!-- feature : feat side category category--2  -->
+		</li>
+			</ul>
+</section><!-- zone c-latest-articles -->
+<section class="zone solid c-videos">
+  <div class="head">Most shared articles</div>
+  <div class="content">
+    <ul class="list">
+                    <li>
+    	<article data-braze="area" class="feat category category--2">
+	<figure class="large"><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/312x140/public/styles/panoramic/public/images/2019/04/management_challenge_in_the_ai_era.jpg?itok=q5OlsFD6" width="312" height="140" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/blog/insead-blog/the-pivotal-management-challenge-of-the-ai-era-11311" data-braze="target">The Pivotal Management Challenge of the AI Era</a></div>
+						<p>Managers and leaders have nothing to fear from AI – except missing out.</p>			</div>
+</article><!-- feature : feat category category--2  -->
+          </li>
+                    <li>
+    	<article data-braze="area" class="feat side category category--1">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/130x81/public/styles/portrait/public/images/2019/04/gettyimages-904535280-1.jpg?itok=PGLE23cm" width="130" height="81" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/blog/insead-blog/what-non-profits-should-know-before-engaging-with-money-managers-11301" data-braze="target">What Non-Profits Should Know Before Engaging With Money Managers</a></div>
+						<p></p>			</div>
+</article><!-- feature : feat side category category--1  -->
+          </li>
+                    <li>
+    	<article data-braze="area" class="feat side category category--2 video">
+	<figure class=""><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/130x81/public/styles/portrait/public/images/2019/04/inclusive_working_cultures_3.jpg?itok=DvUEzT9D" width="130" height="81" alt="" /><span class="play"></span></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/what-makes-for-inclusive-working-cultures-11351" data-braze="target">What Makes for Inclusive Working Cultures?</a></div>
+						<p></p>			</div>
+</article><!-- feature : feat side category category--2 video  -->
+          </li>
+            </ul>
+  </div>
+</section><!-- c-videos -->
+  <section class="zone solid c-bloggers-corner">
+    <div class="head"><a href="https://twitter.com/INSEADKnowledge" target="_blank">Twitter Feed</a></div>
+    <ul class="list">
+            <li>
+            Adversity teaches us that we cannot have control over everything. It makes us less likely to judge others. How an i… https://t.co/qgeZoNnRd5            <a href="https://twitter.com/i/web/status/1246804812731121668" target="_blank">https://twitter.com/i/web/status/1246804812731121668</a> via <a href="https://twitter.com/INSEADKnowledge" class="at" target="_blank">INSEADKnowledge</a>        </li>
+            <li>
+            It is only to the devil that ethics can be sold. 
+
+https://t.co/ZY9u62LmP0            <a href="https://knowledge.insead.edu/blog/insead-blog/three-inconvenient-truths-about-corruption-10856" target="_blank">https://knowledge.insead.edu/blog/insead-blog/three-inconvenient-truths-about-corruption-10856</a> via <a href="https://twitter.com/INSEADKnowledge" class="at" target="_blank">INSEADKnowledge</a>        </li>
+            <li>
+            Character and temperament matter as much as ability.
+
+https://t.co/aKioP4boqp            <a href="https://knowledge.insead.edu/blog/insead-blog/looking-for-the-right-co-founders-7126" target="_blank">https://knowledge.insead.edu/blog/insead-blog/looking-for-the-right-co-founders-7126</a> via <a href="https://twitter.com/INSEADKnowledge" class="at" target="_blank">INSEADKnowledge</a>        </li>
+        </ul>
+  </section><!-- zone c-bloggers-corner -->
+<section class="zone solid c-latest-comments">
+  <div class="head">Latest Comments</div>
+  <ul class="list">
+            <li>
+    <article data-braze="area">
+      <div class="metas"><span class="author">Minter Dial</span>, <time datetime="2020-04-02T12:47:00+02:00">02.04.2020 at 12.47 pm</time></div>
+      <div class="h"><a href="/blog/insead-blog/coping-with-life-in-lockdown-13661#comment-27421" data-braze="target">Coping With Life in Lockdown</a></div>
+      <p>Speaker & Author - Great piece, Manfred. I have resisted the term "social distancing" as I feel like it...</p>
+    </article>
+    </li>
+                <li>
+    <article data-braze="area">
+      <div class="metas"><span class="author">Svet</span>, <time datetime="2020-04-01T21:45:00+02:00">01.04.2020 at 09.45 pm</time></div>
+      <div class="h"><a href="/blog/insead-blog/coping-with-life-in-lockdown-13661#comment-27156" data-braze="target">Coping With Life in Lockdown</a></div>
+      <p>Social Distancing vs Reconnection with your VIPs? - I totally agree that the quarantine gave an ability to...</p>
+    </article>
+    </li>
+                <li>
+    <article data-braze="area">
+      <div class="metas"><span class="author">Adil</span>, <time datetime="2020-04-01T20:46:00+02:00">01.04.2020 at 08.46 pm</time></div>
+      <div class="h"><a href="/blog/insead-blog/coronavirus-has-taken-remote-work-mainstream-now-what-13536#comment-27151" data-braze="target">Coronavirus Has Taken Remote Work Mainstream. Now What?</a></div>
+      <p>Life After COVID-19 - Hi Phanish & Marco, I just finished reading your blog and filled your survey. I hope,...</p>
+    </article>
+    </li>
+                <li>
+    <article data-braze="area">
+      <div class="metas"><span class="author">RonyStefano</span>, <time datetime="2020-03-31T14:15:24+02:00">31.03.2020 at 02.15 pm</time></div>
+      <div class="h"><a href="/blog/insead-blog/speed-power-and-flow-use-surf-criteria-to-rate-start-ups-13611#comment-26946" data-braze="target">Speed, Power and Flow: Use Surf Criteria to Rate Start-ups</a></div>
+      <p>Hype helps SPEED!  - Dear Olivier, thanks for your comments and for reading our article. ...</p>
+    </article>
+    </li>
+                <li>
+    <article data-braze="area">
+      <div class="metas"><span class="author">Nithya</span>, <time datetime="2020-03-31T09:17:00+02:00">31.03.2020 at 09.17 am</time></div>
+      <div class="h"><a href="/blog/insead-blog/why-leaders-should-embrace-their-dark-side-13561#comment-26906" data-braze="target">Why Leaders Should Embrace Their Dark Side</a></div>
+      <p>Mr. Manfred, as a creative - Mr. Manfred, as a creative writer you have always amazed me with your...</p>
+    </article>
+    </li>
+              </ul>
+</section><!-- zone c-latest-comments -->
+<section class="zone solid follow-us">
+  <div class="head"><a href="https://www.facebook.com/Knowledge.insead" target="_blank">Follow us</a></div>
+  <div class="fb-page" data-href="https://www.facebook.com/Knowledge.insead" data-tabs="timeline" data-width="292" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+</section>
+  </div>
+        </div><!-- col c1 -->
+        <div class="zone solid" role="complementary">
+            <div class="region region-bottom">
+    <div class="c-spotlight">
+    <div class="head">In the Spotlight</div>
+<div class="col c1 c-first">
+	<article data-braze="area" class="feat category category--23">
+	<figure class="large"><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/312x140/public/styles/panoramic/public/images/2019/03/healthcare.jpg?itok=Nz_CDBkX" width="312" height="140" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/responsibility/healthcare-management-4266" data-braze="target">Healthcare Management</a></div>
+						<p>The Healthcare Management Initiative at INSEAD was founded on the belief that many of the systemic challenges of the healthcare...</p>			</div>
+</article><!-- feature : feat category category--23  -->
+    </div><!----><div class="col c1">
+	<article data-braze="area" class="feat category category--2">
+	<figure class="large"><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/312x140/public/styles/panoramic/public/images/2017/09/bonsai-pix.jpg?itok=qkLVM6xI" width="312" height="140" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/insead-corporate-governance-centre-5846" data-braze="target">INSEAD Corporate Governance Centre</a></div>
+						<p>In a rapidly changing business environment disrupted by increased regulatory reforms, digitalisation, societal demands, capital...</p>			</div>
+</article><!-- feature : feat category category--2  -->
+    </div><!----><div class="col c1">
+	<article data-braze="area" class="feat category category--2">
+	<figure class="large"><img src="https://knowledge.insead.edu/sites/www.insead.edu/files/styles/312x140/public/styles/panoramic/public/images/2018/12/algorithms_to_decode_culture.jpg?itok=v8cNiv96" width="312" height="140" alt="" /></figure>	<div class="feat_body">
+		<div class="title"><a href="/leadership-organisations/the-future-of-management-10991" data-braze="target">The Future of Management</a></div>
+						<p>A series of blog posts about how changes in culture and technology are reshaping what managers do. INSEAD professors Pushan...</p>			</div>
+</article><!-- feature : feat category category--2  -->
+    </div></div>
+  </div>
+        </div><!-- zone -->
+      </div><!-- row -->
+    </div><!-- site-body trunk -->
+  </div><!-- site-body -->
+  <footer id="site-footer" class="site-footer">
+  <div class="trunk">
+    <div class="extras connect">
+      <div>Connect with us:</div>
+      <ul>
+        <li><span data-braze="L3Jzcy9saXN0" data-braze-blank><span class="ico_rss"></span>RSS</span></li><!--
+        --><li><span data-braze="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vY29tcGFueS9pbnNlYWQ=" data-braze-blank><span class="ico_linked-in"></span>Linked In</span></li><!--
+        --><li><span data-braze="aHR0cDovL3d3dy5mYWNlYm9vay5jb20vS25vd2xlZGdlLmluc2VhZA==" data-braze-blank><span class="ico_facebook"></span>Facebook</span></li><!--
+        --><li><span data-braze="aHR0cDovL3d3dy55b3V0dWJlLmNvbS9pbnNlYWQ=" data-braze-blank><span class="ico_youtube"></span>YouTube</span></li><!--
+        --><li><span data-braze="aHR0cDovL3R3aXR0ZXIuY29tL0lOU0VBREtub3dsZWRnZQ==" data-braze-blank><span class="ico_twitter"></span>Twitter</span></li><!--
+        --><li><span data-braze="aHR0cDovL2l0dW5lcy5pbnNlYWQuZWR1" data-braze-blank><span class="ico_itunes"></span>iTunes U</span></li><!--
+        --><!--li><span data-braze="" data-braze-blank><span class="ico_google-plus"></span>Google+</span></li-->
+      </ul>
+    </div><!--
+    --><div class="extras about">
+      <div>Information:</div>
+      <ul>
+        <li><span data-braze="L3RlYW0=">About Us</span></li><!--
+        --><li><span data-braze="L3VzZXIvcmVnaXN0ZXI=">Subscribe</span></li><!--        --><li><span data-braze="L2NvbnRhY3Q=">Contact us</span></li>
+        <li><span data-braze="aHR0cHM6Ly9rbm93bGVkZ2UtYXJhYmlhLmluc2VhZC5lZHUv" data-braze-blank>INSEAD Knowledge Arabia</span></li>
+      </ul>
+    </div><!--
+    --><div class="extras partners">
+      <div>Our partners:</div>
+      <ul>
+        <!--li><span data-braze="aHR0cDovL3d3dy5zcHAubnVzLmVkdS5zZy9ob21lLmFzcHg=" data-braze-blank><img src="/sites/all/themes/knowledge2015/img/logo-lky.png" alt=""></span></li--><!--
+        --><li><span data-braze="aHR0cHM6Ly93d3cuaW5zZWFkLmVkdS9hYm91dC9hbGxpYW5jZS1wYXJ0bmVyc2hpcHMvaW5zZWFkLXdoYXJ0b24tYWxsaWFuY2U=" data-braze-blank><img src="/sites/all/themes/knowledge2015/img/logo-wharton.png" alt=""></span></li><!--
+        --><!--li><span data-braze="aHR0cDovL3d3dy55YWxlLmVkdS8=" data-braze-blank><img src="/sites/all/themes/knowledge2015/img/logo-yale.png" alt=""></span></li--><!--
+        --><li><span data-braze="aHR0cHM6Ly93d3cuaW5zZWFkLmVkdS9tYXN0ZXItcHJvZ3JhbW1lcy90aWVtYmE=" data-braze-blank><img src="/sites/all/themes/knowledge2015/img/logo-sem.png" alt=""></span></li><!--
+        --><li class="fr">
+              <span>INSEAD Knowledge App</span>
+              <img src="/sites/all/themes/knowledge2015/img/stevie_award_app.png" alt="">
+          </li><!--
+        --><li class="fr">
+              <span>INSEAD Knowledge Website</span>
+              <img src="/sites/all/themes/knowledge2015/img/stevie_award_website.png" alt="">
+          </li>
+      </ul>
+    </div>
+    <div class="bear" role="contentinfo">
+      <ul class="pipes">
+        <li><span data-braze="L3Rlcm1zLWNvbmRpdGlvbnM=">Terms &amp; Conditions</span></li><!--
+        --><li><span data-braze="L2NvcHlyaWdodA==">Copyright</span></li><!--
+        --><li><span data-braze="L3ByaXZhY3ktcG9saWN5">Privacy Policy</span></li><!--
+        --><li class="palpix"><a href="http://www.idix.fr/" target="_blank">Designed by IDIX</a></li>
+      </ul>
+      <p class="copy">&copy; 2020 INSEAD Knowledge</p>
+    </div>
+  </div>
+</footer><!-- site-footer -->
+
+<!-- Cookies -->
+<!-- <div id="cookie-notice" class="notice">
+	<button class="close">×</button>
+	<p>This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.&nbsp;<a href="/terms-conditions">Find out more</a>.</p>
+</div> -->
+
+
+</div><!-- /site -->        <!-- facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=232688120100685";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<!-- google-plus -->
+<script type="text/javascript">
+(function() {
+  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+  po.src = 'https://apis.google.com/js/plusone.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+
+<!-- linked-in -->
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+
+<!-- yammer --
+<script type="text/javascript" data-app-id="DNseyYvsdLyyXXqDJkc45Q" src="https://assets.yammer.com/platform/yam.js"></script>
+<script type="text/javascript">
+yam.connect.actionButton({
+	container: "#yammer-like",
+	network: "knowledge.insead.edu",
+	action: "like"
+});
+</script-->    <script type="text/javascript" src="https://knowledge.insead.edu/sites/www.insead.edu/files/js/js_7NS47vWuOJDStDygXAo_sucCpz_ZTjOcQakVcEv4wlk.js"></script>
+<script type="text/javascript" src="https://knowledge.insead.edu/sites/www.insead.edu/files/js/js_5ZvYbR_RpAnAa4Gy_hGCjwhuaBQEWzQIAwlMCStkIuU.js"></script>
+<script type="text/javascript" src="https://knowledge.insead.edu/sites/www.insead.edu/files/js/js_COMsmDyrY9mzVU28X2uGvF4Ba3vd5eTo5xEO7dvCUZM.js"></script>
+<script type="text/javascript" src="https://lift3assets.lift.acquia.com/stable/lift.js"></script>
+<script type="text/javascript" src="https://knowledge.insead.edu/sites/www.insead.edu/files/js/js_ebIdDJP9ndLa1MPcNgJ20zHkN3moLt3xA7O4DITAXIE.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function($) { $.get("/nodes-statistics.php", { nid: "6721" }); })(jQuery);
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://knowledge.insead.edu/sites/www.insead.edu/files/js/js_ulQEr2Pj9fcMY5uzNo8u-kzkTzvLHuRZtMomXN6sXHQ.js"></script>
+<script type="text/javascript" src="https://knowledge.insead.edu/sites/www.insead.edu/files/js/js_Elk2OANP8kdnsdm0R9hBNLkNaLEvGGxmXpWSvqvw40I.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"knowledge2015","theme_token":"Rre_nEXSddJD4_j1SOCmzqb4AKlj4CjY8yVGq2hEUi0"},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"urlIsAjaxTrusted":{"\/leadership-organisations\/the-virtues-of-unintelligent-organisation-design-6721":true,"\/system\/ajax":true,"\/comment\/reply\/6721":true},"ajax":{"edit-ajax-comments-reply-form-6721-0-0":{"callback":"ajax_comments_submit_js","wrapper":"ajax-comments-reply-form-6721-0-0","method":"replaceWith","effect":"fade","event":"mousedown","keypress":true,"prevent":"click","url":"\/system\/ajax","submit":{"_triggering_element_name":"op","_triggering_element_value":"Submit"}}}});
+//--><!]]>
+</script>
+    <!-- Techaspect implemented below code -->
+	<script type="text/javascript">
+        function privacyPromptChecked(){
+            setTimeout(function(){
+                document.getElementById('privacy_pref_optout').checked = true;
+                document.getElementById('privacy_pref_optin').checked = false;
+                jQuery('#consent_prompt_submit').click();
+            }, 2000);
+        }
+                    var stringDomain = window.location.hostname,
+               substringReferrer = document.referrer;
+            resultString = substringReferrer.includes(stringDomain);
+            resultStringIndex =  substringReferrer.indexOf(stringDomain)
+            console.log('>s8:'+ resultString )
+            console.log('>s9:'+ resultStringIndex )
+
+            if (resultStringIndex !== -1 &&  resultString == true ) {
+                jQuery(window).load(function(){
+                    setTimeout(function(){
+                        console.log('>s10: gdpr click')
+                        if (jQuery('#consent_prompt_submit').length > 0){
+                            jQuery('#consent_prompt_submit').click()
+                        }
+                    },1500);
+                })
+            }
+
+        
+	</script>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b044f403c1","applicationID":"56772219","transactionName":"MVxTZ0JUVkFXABZeXggWcFBEXFdcGQ0NU1Q5SVBUVWpOW1MU","queueTime":0,"applicationTime":201,"atts":"HRtQEQpORU8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
